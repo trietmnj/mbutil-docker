@@ -3,7 +3,7 @@ services:
   tile-processor:
     container_name: TP_DEV
     image: python:latest
-    working_dir: /workspaces/tiler-processor
+    working_dir: /workspaces/mbutil
     environment:
       - PATH=/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/workspaces/
     volumes:
@@ -12,9 +12,8 @@ services:
     - bash
     - -c
     - |
-      apt-get update &&
-      apt-get install -y git &&
-      git clone https://github.com/mapbox/mbutil /workspaces/tiler-processor
+      cd /workspaces/
+      git clone "https://github.com/mapbox/mbutil"
       bash
     tty: true
 
